@@ -1,7 +1,7 @@
 # test.py
 
 def welcome_message():
-    return "تست تست تست "
+    return "تتست"
 
 def add_numbers(a, b):
     return a + b
