@@ -1,0 +1,554 @@
+/* =========================================================
+   FLOWIN GLOBAL THEME - FULL THEME WITH TOGGLE
+   يدعم الوضع الفاتح والداكن مع زر تبديل
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  --fl-bg: #f6f4fb;
+  --fl-surface: #ffffff;
+  --fl-surface-2: #faf8fd;
+  --fl-surface-3: #f1edf7;
+
+  --fl-text: #24134f;
+  --fl-text-soft: #6f6680;
+  --fl-text-faint: #9890a5;
+
+  --fl-border: #e4deee;
+  --fl-primary: #6d28d9;
+  --fl-primary-2: #7b2cbf;
+  --fl-primary-soft: #ede9fe;
+
+  --fl-success: #22c55e;
+  --fl-warning: #f59e0b;
+  --fl-danger: #ef4444;
+
+  --fl-shadow: 0 14px 34px rgba(45, 27, 105, 0.08);
+  --fl-sidebar: #4b3b91;
+  --fl-sidebar-active: #6b5ab0;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --fl-bg: #0f0b17;
+  --fl-surface: #191323;
+  --fl-surface-2: #21192e;
+  --fl-surface-3: #2a2038;
+
+  --fl-text: #f7f2ff;
+  --fl-text-soft: #b9afc7;
+  --fl-text-faint: #8f849d;
+
+  --fl-border: #392d4a;
+  --fl-primary: #9b6cff;
+  --fl-primary-2: #b05cff;
+  --fl-primary-soft: #322248;
+
+  --fl-success: #4ade80;
+  --fl-warning: #fbbf24;
+  --fl-danger: #fb7185;
+
+  --fl-shadow: 0 16px 40px rgba(0, 0, 0, 0.34);
+  --fl-sidebar: #281d5e;
+  --fl-sidebar-active: #46358a;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fl-bg);
+  color: var(--fl-text);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+/* ---------- Main layouts ---------- */
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] #root,
+html[data-theme="dark"] .app,
+html[data-theme="dark"] main,
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .layout-content,
+html[data-theme="dark"] .page-content,
+html[data-theme="dark"] .admin-content,
+html[data-theme="dark"] .coordinator-content,
+html[data-theme="dark"] .interviewer-content,
+html[data-theme="dark"] .dashboard-page,
+html[data-theme="dark"] .flowin-dashboard,
+html[data-theme="dark"] .shortlist-page,
+html[data-theme="dark"] .emails-page {
+  background: var(--fl-bg) !important;
+  color: var(--fl-text) !important;
+}
+
+/* ---------- Sidebar ---------- */
+
+html[data-theme="dark"] aside,
+html[data-theme="dark"] .sidebar,
+html[data-theme="dark"] .admin-sidebar,
+html[data-theme="dark"] .coordinator-sidebar,
+html[data-theme="dark"] .interviewer-sidebar {
+  background: var(--fl-sidebar) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+html[data-theme="dark"] aside a,
+html[data-theme="dark"] aside button,
+html[data-theme="dark"] .sidebar a,
+html[data-theme="dark"] .sidebar button,
+html[data-theme="dark"] .admin-sidebar a,
+html[data-theme="dark"] .admin-sidebar button,
+html[data-theme="dark"] .coordinator-sidebar a,
+html[data-theme="dark"] .coordinator-sidebar button {
+  color: #f8f5ff !important;
+}
+
+html[data-theme="dark"] aside a.active,
+html[data-theme="dark"] aside button.active,
+html[data-theme="dark"] aside a:hover,
+html[data-theme="dark"] aside button:hover,
+html[data-theme="dark"] .sidebar a.active,
+html[data-theme="dark"] .sidebar button.active,
+html[data-theme="dark"] .sidebar a:hover,
+html[data-theme="dark"] .sidebar button:hover {
+  background: var(--fl-sidebar-active) !important;
+  color: #ffffff !important;
+}
+
+/* ---------- Page headings ---------- */
+
+html[data-theme="dark"] main h1,
+html[data-theme="dark"] main h2,
+html[data-theme="dark"] main h3,
+html[data-theme="dark"] main h4,
+html[data-theme="dark"] .dashboard-page-heading h1,
+html[data-theme="dark"] .dashboard-panel-heading h2,
+html[data-theme="dark"] .emails-header h1,
+html[data-theme="dark"] .shortlist-page h1 {
+  color: var(--fl-text) !important;
+}
+
+html[data-theme="dark"] main > p,
+html[data-theme="dark"] main header p,
+html[data-theme="dark"] .page-header p,
+html[data-theme="dark"] .dashboard-page-heading p,
+html[data-theme="dark"] .emails-header p {
+  color: var(--fl-text-soft) !important;
+}
+
+/* ---------- Universal surfaces inside main ---------- */
+
+html[data-theme="dark"] main :is(
+  .card,
+  .panel,
+  .stat,
+  .tablewrap,
+  .table-wrapper,
+  .table-card,
+  .content-card,
+  .page-card,
+  .form-card,
+  .filter-card,
+  .filters,
+  .filter-bar,
+  .search-bar,
+  .toolbar,
+  .modal-content,
+  .dashboard-kpi-card,
+  .dashboard-panel,
+  .dashboard-state-card,
+  .dashboard-empty-state,
+  .shortlist-stats > div,
+  .shortlist-filters,
+  .shortlist-table-card,
+  .shortlist-table-wrapper,
+  .bulk-email-toolbar,
+  .emails-form,
+  .emails-history-card,
+  .email-success-page,
+  .email-success-details div,
+  .email-success-recipients
+) {
+  background: var(--fl-surface) !important;
+  color: var(--fl-text) !important;
+  border-color: var(--fl-border) !important;
+  box-shadow: var(--fl-shadow) !important;
+}
+
+/* Some pages use plain sections/divs with no shared class */
+html[data-theme="dark"] main > section,
+html[data-theme="dark"] main > form {
+  color: var(--fl-text);
+}
+
+/* ---------- Inputs ---------- */
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background: var(--fl-surface-2) !important;
+  color: var(--fl-text) !important;
+  border-color: var(--fl-border) !important;
+  caret-color: var(--fl-primary);
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: var(--fl-text-faint) !important;
+}
+
+html[data-theme="dark"] select option {
+  background: var(--fl-surface-2);
+  color: var(--fl-text);
+}
+
+/* ---------- Tables ---------- */
+
+html[data-theme="dark"] main table {
+  background: var(--fl-surface) !important;
+  color: var(--fl-text) !important;
+}
+
+html[data-theme="dark"] main thead,
+html[data-theme="dark"] main th {
+  background: var(--fl-surface-2) !important;
+  color: var(--fl-text) !important;
+  border-color: var(--fl-border) !important;
+}
+
+html[data-theme="dark"] main tbody,
+html[data-theme="dark"] main tr,
+html[data-theme="dark"] main td {
+  background: var(--fl-surface) !important;
+  color: var(--fl-text) !important;
+  border-color: var(--fl-border) !important;
+}
+
+html[data-theme="dark"] main tbody tr:hover td {
+  background: var(--fl-surface-2) !important;
+}
+
+/* ---------- Generic text inside content ---------- */
+
+html[data-theme="dark"] main label,
+html[data-theme="dark"] main p,
+html[data-theme="dark"] main small {
+  color: var(--fl-text-soft);
+}
+
+html[data-theme="dark"] main strong,
+html[data-theme="dark"] main b {
+  color: var(--fl-text);
+}
+
+/* ---------- Buttons ---------- */
+
+html[data-theme="dark"] main button,
+html[data-theme="dark"] main .button,
+html[data-theme="dark"] main .btn {
+  border-color: var(--fl-border);
+}
+
+html[data-theme="dark"] main button:not(
+  .flowin-theme-toggle,
+  .save-button,
+  .emails-send-button,
+  .primary-button,
+  .btn-primary
+) {
+  background: var(--fl-surface-2);
+  color: var(--fl-text);
+}
+
+html[data-theme="dark"] main :is(
+  .save-button,
+  .emails-send-button,
+  .primary-button,
+  .btn-primary
+) {
+  background: linear-gradient(135deg, var(--fl-primary), var(--fl-primary-2)) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+/* ---------- Dashboard ---------- */
+
+html[data-theme="dark"] .dashboard-refresh-button {
+  background: var(--fl-surface) !important;
+  color: var(--fl-primary) !important;
+  border-color: var(--fl-border) !important;
+}
+
+html[data-theme="dark"] .dashboard-refresh-button:hover {
+  background: var(--fl-surface-2) !important;
+}
+
+html[data-theme="dark"] .dashboard-kpi-card span,
+html[data-theme="dark"] .dashboard-kpi-card p,
+html[data-theme="dark"] .workflow-bar-label span,
+html[data-theme="dark"] .city-row-heading span,
+html[data-theme="dark"] .decision-item span {
+  color: var(--fl-text-soft) !important;
+}
+
+html[data-theme="dark"] .dashboard-kpi-card strong,
+html[data-theme="dark"] .workflow-bar-label strong,
+html[data-theme="dark"] .city-row-heading strong,
+html[data-theme="dark"] .decision-item strong,
+html[data-theme="dark"] .dashboard-panel-heading h2 {
+  color: var(--fl-text) !important;
+}
+
+html[data-theme="dark"] .dashboard-panel-heading,
+html[data-theme="dark"] .dashboard-panel-heading span {
+  color: var(--fl-primary) !important;
+}
+
+html[data-theme="dark"] .workflow-bar-track,
+html[data-theme="dark"] .city-bar-track {
+  background: var(--fl-surface-3) !important;
+}
+
+html[data-theme="dark"] .dashboard-data-note,
+html[data-theme="dark"] .decision-item {
+  background: var(--fl-surface-2) !important;
+  color: var(--fl-text-soft) !important;
+}
+
+html[data-theme="dark"] .dashboard-kpi-icon {
+  background: var(--fl-primary-soft) !important;
+  color: var(--fl-primary) !important;
+}
+
+/* Keep semantic KPI icon colors */
+html[data-theme="dark"] .dashboard-kpi-card.green .dashboard-kpi-icon {
+  background: rgba(34, 197, 94, 0.16) !important;
+  color: var(--fl-success) !important;
+}
+
+html[data-theme="dark"] .dashboard-kpi-card.orange .dashboard-kpi-icon {
+  background: rgba(245, 158, 11, 0.16) !important;
+  color: var(--fl-warning) !important;
+}
+
+html[data-theme="dark"] .dashboard-kpi-card.red .dashboard-kpi-icon {
+  background: rgba(239, 68, 68, 0.16) !important;
+  color: var(--fl-danger) !important;
+}
+
+/* ---------- Assessments / Applicants / Interviews ---------- */
+
+html[data-theme="dark"] main :is(
+  .assessment-page,
+  .assessments-page,
+  .applicants-page,
+  .interviews-page,
+  .users-page
+) {
+  color: var(--fl-text) !important;
+}
+
+html[data-theme="dark"] main :is(
+  .assessment-filters,
+  .assessments-filters,
+  .applicants-filters,
+  .interviews-filters,
+  .users-filters
+) {
+  background: var(--fl-surface) !important;
+  border-color: var(--fl-border) !important;
+}
+
+/* ---------- Final shortlist ---------- */
+
+html[data-theme="dark"] .shortlist-stats span,
+html[data-theme="dark"] .shortlist-no-email,
+html[data-theme="dark"] .shortlist-pagination {
+  color: var(--fl-text-soft) !important;
+}
+
+html[data-theme="dark"] .shortlist-stats strong,
+html[data-theme="dark"] .shortlist-score,
+html[data-theme="dark"] .shortlist-email {
+  color: var(--fl-text) !important;
+}
+
+html[data-theme="dark"] .bulk-email-toolbar {
+  background: var(--fl-surface) !important;
+}
+
+/* ---------- Email simulation ---------- */
+
+html[data-theme="dark"] .emails-tabs button {
+  background: transparent !important;
+  color: var(--fl-text-soft) !important;
+}
+
+html[data-theme="dark"] .emails-tabs button.active {
+  background: var(--fl-primary-soft) !important;
+  color: var(--fl-primary) !important;
+}
+
+html[data-theme="dark"] .email-simulation-notice {
+  background: var(--fl-primary-soft) !important;
+  color: #d8c4ff !important;
+  border-color: #4a3564 !important;
+}
+
+html[data-theme="dark"] .email-success-description,
+html[data-theme="dark"] .emails-history-heading p {
+  color: var(--fl-text-soft) !important;
+}
+
+/* ---------- Login ---------- */
+
+html[data-theme="dark"] .login,
+html[data-theme="dark"] .login-page,
+html[data-theme="dark"] .auth-page,
+html[data-theme="dark"] .login-container,
+html[data-theme="dark"] .auth-container {
+  background:
+    radial-gradient(circle at top right, rgba(155, 108, 255, 0.22), transparent 34%),
+    linear-gradient(135deg, #0b0811, #211542) !important;
+}
+
+html[data-theme="dark"] :is(
+  .login-card,
+  .auth-card,
+  .login-form-card,
+  .login .card
+) {
+  background: var(--fl-surface) !important;
+  color: var(--fl-text) !important;
+  border: 1px solid var(--fl-border) !important;
+  box-shadow: var(--fl-shadow) !important;
+}
+
+html[data-theme="dark"] :is(
+  .login-card,
+  .auth-card,
+  .login-form-card,
+  .login .card
+) h1,
+html[data-theme="dark"] :is(
+  .login-card,
+  .auth-card,
+  .login-form-card,
+  .login .card
+) h2 {
+  color: var(--fl-text) !important;
+}
+
+html[data-theme="dark"] :is(
+  .login-card,
+  .auth-card,
+  .login-form-card,
+  .login .card
+) p,
+html[data-theme="dark"] :is(
+  .login-card,
+  .auth-card,
+  .login-form-card,
+  .login .card
+) small {
+  color: var(--fl-text-soft) !important;
+}
+
+/* ---------- Status badges ---------- */
+
+html[data-theme="dark"] :is(
+  .status,
+  .badge,
+  .pill,
+  .accepted,
+  .qualified,
+  .success
+) {
+  color: inherit;
+}
+
+/* Prevent global rules from ruining semantic badges */
+html[data-theme="dark"] .decision-item.accepted .decision-icon,
+html[data-theme="dark"] .status.accepted,
+html[data-theme="dark"] .badge.accepted,
+html[data-theme="dark"] .email-status.simulated {
+  color: var(--fl-success) !important;
+}
+
+html[data-theme="dark"] .decision-item.backup .decision-icon,
+html[data-theme="dark"] .status.backup,
+html[data-theme="dark"] .badge.backup {
+  color: var(--fl-warning) !important;
+}
+
+html[data-theme="dark"] .decision-item.rejected .decision-icon,
+html[data-theme="dark"] .status.rejected,
+html[data-theme="dark"] .badge.rejected {
+  color: var(--fl-danger) !important;
+}
+
+/* ---------- Theme toggle (يظهر في كل الوضعين) ---------- */
+
+.flowin-theme-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 10000;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 94px;
+  padding: 11px 15px;
+  border: 1px solid var(--fl-border);
+  border-radius: 999px;
+
+  background: var(--fl-surface);
+  color: var(--fl-text);
+  box-shadow: var(--fl-shadow);
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+
+  transition:
+    transform 160ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.flowin-theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.flowin-theme-toggle:focus-visible {
+  outline: 3px solid rgba(155, 108, 255, 0.32);
+  outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+  .flowin-theme-toggle {
+    right: 14px;
+    bottom: 14px;
+    min-width: 48px;
+    padding: 11px;
+  }
+
+  .flowin-theme-toggle span {
+    display: none;
+  }
+}
